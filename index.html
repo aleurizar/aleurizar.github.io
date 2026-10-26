@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ale Urizar — Portfolio</title>
+  <meta name="description" content="Portfolio de Ale Urizar — proyectos en GTM, automatización, inmobiliarias y herramientas web." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #030c14;
+      --bg-card: #071624;
+      --border: #1a2d42;
+      --text: #e8eef5;
+      --muted: #7a8fa6;
+      --accent: #1a7fff;
+      --accent-soft: rgba(26, 127, 255, .12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 5rem 0 3.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-greeting {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-tagline {
+      font-size: 1.125rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background .2s, border-color .2s, transform .15s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: #0f6ae8; transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-ghost:hover { border-color: var(--muted); }
+
+    /* ── Projects ── */
+    .section {
+      padding: 3.5rem 0;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .project-badge {
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      flex: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-tech {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .tech-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .project-link {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .project-link:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 600px) {
+      .hero { padding: 3rem 0 2.5rem; }
+      .section { padding: 2.5rem 0; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <p class="hero-greeting">Hola, soy</p>
+      <h1>Ale Urizar</h1>
+      <p class="hero-tagline">
+        Construyo herramientas web para GTM, automatización de ventas
+        y análisis inmobiliario. TypeScript, React y datos.
+      </p>
+      <div class="hero-links">
+        <a class="btn btn-primary" href="https://github.com/aleurizar" target="_blank" rel="noopener">
+          GitHub
+        </a>
+        <a class="btn btn-ghost" href="mailto:aurizar@latamdata.com">
+          Contacto
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Proyectos</p>
+        <h2 class="section-title">Cosas que he construido</h2>
+
+        <div class="projects-grid">
+
+          <a class="project-card" href="https://mapainversor.vercel.app" target="_blank" rel="noopener">
+            <div class="project-header">
+              <span class="project-name">MapaInversor</span>
+              <span class="project-badge">Live</span>
+            </div>
+            <p class="project-desc">
+              Dashboard de gestión de proyectos inmobiliarios con vista de mapa
+              interactivo, login y autenticación.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">Mapbox</span>
+            </div>
+            <span class="project-link">Abrir →</span>
+          </a>
+
+          <a class="project-card" href="https://hunter-tan-iota.vercel.app" target="_blank" rel="noopener">
+            <div class="project-header">
+              <span class="project-name">Hunter Leads Explorer</span>
+              <span class="project-badge">Live</span>
+            </div>
+            <p class="project-desc">
+              Explorá y filtrá leads de Hunter.io directamente desde el browser.
+              Sin backend, con tu propia API key.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Hunter.io API</span>
+            </div>
+            <span class="project-link">Abrir →</span>
+          </a>
+
+          <a class="project-card" href="https://aleurizar.github.io/calculadora_roi/" target="_blank" rel="noopener">
+            <div class="project-header">
+              <span class="project-name">Calculadora de Adquisición SaaS</span>
+              <span class="project-badge">Live</span>
+            </div>
+            <p class="project-desc">
+              Herramienta interactiva para calcular ROI de adquisición de clientes
+              en modelos SaaS con gráficos y métricas.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Recharts</span>
+            </div>
+            <span class="project-link">Abrir →</span>
+          </a>
+
+          <a class="project-card" href="https://aleurizar.github.io/calculadora_roi_real_estate/" target="_blank" rel="noopener">
+            <div class="project-header">
+              <span class="project-name">ROI Real Estate</span>
+              <span class="project-badge">Live</span>
+            </div>
+            <p class="project-desc">
+              Calculadora de retorno de inversión para desarrolladoras
+              inmobiliarias, con sliders y métricas en tiempo real.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JS</span>
+            </div>
+            <span class="project-link">Abrir →</span>
+          </a>
+
+          <a class="project-card" href="https://aleurizar.github.io/emelia/" target="_blank" rel="noopener">
+            <div class="project-header">
+              <span class="project-name">CHL LinkedIn Tracker</span>
+              <span class="project-badge">Live</span>
+            </div>
+            <p class="project-desc">
+              Dashboard de seguimiento y métricas de actividad en LinkedIn
+              para equipos de ventas y GTM.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">JS</span>
+            </div>
+            <span class="project-link">Abrir →</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p class="footer-copy">© 2026 Ale Urizar</p>
+      <div class="footer-links">
+        <a href="https://github.com/aleurizar" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:aurizar@latamdata.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
